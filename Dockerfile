@@ -13,8 +13,7 @@ RUN apt-get update && apt-get install -y \
     imagemagick \
     libmagick++-dev \
     liblua5.1-0-dev \
-    luajit \
-    tree-sitter-cli
+    luajit
 
 USER $DEFAULT_USER
 
