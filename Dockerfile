@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     luajit \
     luarocks \
     software-properties-common \
+    vim \
     && add-apt-repository ppa:neovim-ppa/unstable \
     && apt-get update && apt-get install -y neovim \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -29,4 +30,4 @@ RUN git clone --depth 1 https://github.com/jmbuhr/quarto-nvim-kickstarter.git ~/
 
 RUN R -q -e "pak::pak(c('languageserver'))"
 
-CMD ["bash", "-c", "source ~/.profile && exec bash"]
+CMD ["bash", "-c", "exec bash"]
