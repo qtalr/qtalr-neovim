@@ -29,6 +29,6 @@ USER $DEFAULT_USER
 RUN mkdir -p ~/.config/ && \
     git clone --depth 1 https://github.com/qtalr/r-quarto-nvim.git ~/.config/nvim
 
-RUN R -q -e "pak::pak(c('languageserver'))"
+RUN R -q -e "install.packages('languageserver')"
 
 CMD ["bash", "-c", "exec bash"]
