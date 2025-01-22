@@ -1,5 +1,5 @@
 # Dockerfile
-# Neovim
+# Image: qtalr-neovim
 
 FROM francojc/qtalr-r:latest
 
@@ -17,6 +17,7 @@ RUN apt-get update && \
     luarocks \
     ripgrep \
     software-properties-common \
+    tree-sitter-cli \
     xclip \
     && add-apt-repository -y ppa:neovim-ppa/unstable \
     && apt-get install -y neovim \
@@ -26,8 +27,8 @@ RUN apt-get update && \
 USER $DEFAULT_USER
 
 RUN mkdir -p ~/.config/ && \
-    git clone --depth 1 https://github.com/jmbuhr/quarto-nvim-kickstarter.git ~/.config/nvim
+    git clone --depth 1 https://github.com/qtalr/r-quarto-nvim.git ~/.config/nvim
 
 RUN R -q -e "pak::pak(c('languageserver'))"
 
-CMD ["bash", "-c", "source ~/.profile && exec bash"]
+CMD ["bash", "-c", "exec bash"]
