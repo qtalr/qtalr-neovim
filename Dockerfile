@@ -23,8 +23,6 @@ USER $DEFAULT_USER
 
 RUN mkdir -p ~/.config/
 
-# FIX: Problem, Neovim from apt-get is not the latest version
-# installing from GitHub restricts to x86_64 architecture
 RUN git clone --depth 1 https://github.com/jmbuhr/quarto-nvim-kickstarter.git ~/.config/nvim
 
 RUN R -q -e "pak::pak(c('languageserver'))"
